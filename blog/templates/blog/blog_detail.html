@@ -2,6 +2,7 @@
 <html lang="tr-tr">
 <head>
     <title>{{ post.title }}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
         body {
             background-color: #1e1e1e;
@@ -11,6 +12,7 @@
             padding: 0;
         }
         .container {
+            width: 80%;
             max-width: 1200px;
             margin: 20px auto;
             padding: 20px;
@@ -21,6 +23,7 @@
         h1 {
             text-align: center;
             color: #fff;
+            font-size: 2em;
         }
         .content, .comments, .comment-form {
             border: 2px solid #444;
@@ -69,6 +72,7 @@
             background-color: #444;
             color: #cfcfcf;
             margin-bottom: 10px;
+            font-size: 1.2em;
         }
         .comment-form form button {
             padding: 10px 20px;
@@ -103,25 +107,44 @@
         @media (max-width: 768px) {
             .container {
                 width: 90%;
-                padding: 10px;
+                margin: 10px;
             }
             .content, .comments, .comment-form {
                 padding: 15px;
             }
-        }
-        @media (max-width: 480px) {
             h1 {
-                font-size: 1.5em;
+                font-size: 1.8em;
             }
             h2 {
+                font-size: 1.5em;
+            }
+            .content, .comments, .comment-form {
+                font-size: 1.1em;
+            }
+        }
+        @media (max-width: 480px) {
+            .container {
+                width: 95%;
+                margin: 10px;
+            }
+            h1 {
+                font-size: 1.8em;
+            }
+            h2 {
+                font-size: 1.3em;
+            }
+            .content, .comments, .comment-form {
+                font-size: 1.1em;
+            }
+            .comment-form form input, .comment-form form textarea {
                 font-size: 1.2em;
             }
         }
     </style>
 </head>
 <body>
+    <h1>{{ post.title }}</h1>
     <div class="container">
-        <h1>{{ post.title }}</h1>
         <p>{{ post.date }}</p>
         <div class="content">
             {{ post.content }}
