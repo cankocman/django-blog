@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-*%xlykeye*sakrf^h-+1v9g!x3*jj_mbs%x)@6+z8(11(9o@q+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['django-blog-snowy-beta.vercel.app']
 
 
 # Application definition
