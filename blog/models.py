@@ -18,4 +18,4 @@ class Comment(models.Model):
     tarih = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return f"Comment by {self.name}"
+        return f"Comment by {self.isim}"
