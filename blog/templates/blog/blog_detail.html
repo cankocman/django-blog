@@ -1,160 +1,168 @@
 <!DOCTYPE html>
 <html lang="tr-tr">
-<head>
+  <head>
     <title>{{ post.title }}</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <style>
-        body {
-            background-color: #1e1e1e;
-            color: #cfcfcf;
-            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-        }
+      body {
+        background-color: #1e1e1e;
+        color: #cfcfcf;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+      .container {
+        width: 80%;
+        max-width: 1200px;
+        margin: 20px auto;
+        padding: 20px;
+        background-color: #2b2b2b;
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+      }
+      h1 {
+        text-align: center;
+        color: #fff;
+        font-size: 2em;
+      }
+      .content,
+      .comments,
+      .comment-form {
+        border: 2px solid #444;
+        border-radius: 8px;
+        padding: 20px;
+        margin-bottom: 20px;
+        transition: background-color 0.3s;
+      }
+
+      .content {
+        white-space: pre-line;
+        background-color: #333;
+        color: white;
+        font-size: large;
+      }
+
+      .comments {
+        background-color: #464646;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      a {
+        color: #fff;
+        text-decoration: none;
+        font-size: medium;
+        padding: 10px;
+        border-radius: 5px;
+        background-color: #ae0000;
+      }
+
+      a:hover {
+        background-color: #670000;
+      }
+
+      .comments p,
+      .comment-form h3 {
+        margin: 10px 0;
+      }
+      .comment-form form {
+        display: flex;
+        flex-direction: column;
+      }
+      .comment-form form input,
+      .comment-form form textarea {
+        padding: 10px;
+        border: none;
+        border-radius: 4px;
+        background-color: #444;
+        color: #cfcfcf;
+        margin-bottom: 10px;
+        font-size: 1.2em;
+      }
+      .comment-form form button {
+        padding: 10px 20px;
+        border: none;
+        border-radius: 4px;
+        background-color: #ae0000;
+        color: #fff;
+        font-size: medium;
+        cursor: pointer;
+        width: fit-content;
+      }
+      .comment-form form button:hover {
+        background-color: #670000;
+      }
+      #comment-header {
+        font-size: larger;
+        color: #ffffff;
+        font-weight: bold;
+      }
+
+      .form-group {
+        display: flex;
+        flex-direction: column;
+        margin: 0 0 20px 0;
+        gap: 5px;
+      }
+
+      #form-group-isim {
+        width: fit-content;
+      }
+
+      @media (max-width: 768px) {
         .container {
-            width: 80%;
-            max-width: 1200px;
-            margin: 20px auto;
-            padding: 20px;
-            background-color: #2b2b2b;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+          width: 85%;
+          padding: 10px;
+        }
+        .content,
+        .comments,
+        .comment-form {
+          padding: 10px;
         }
         h1 {
-            text-align: center;
-            color: #fff;
-            font-size: 2em;
+          font-size: 1.8em;
         }
-        .content, .comments, .comment-form {
-            border: 2px solid #444;
-            border-radius: 8px;
-            padding: 20px;
-            margin-bottom: 20px;
-            transition: background-color 0.3s;
+        h2 {
+          font-size: 1.5em;
         }
-
+        .content,
+        .comments,
+        .comment-form {
+          font-size: 1.1em;
+        }
+      }
+      @media (max-width: 480px) {
+        .container {
+          width: 85%;
+          padding: 15px;
+        }
+        h1 {
+          font-size: 1.8em;
+        }
+        h2 {
+          font-size: 1.3em;
+        }
         .content {
-            white-space: pre-line;
-            background-color: #333;
-            color: white;
-            font-size: large;
+          font-size: 1.1em;
         }
-
-        .comments {
-            background-color: #464646;
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
+        .comments,
+        .comment-form {
+          font-size: 1em;
         }
-
-        a {
-            color: #fff;
-            text-decoration: none;
-            font-size: medium;
-            padding: 10px;
-            border-radius: 5px;
-            background-color: #ae0000;
+        .comment-form form input,
+        .comment-form form textarea {
+          font-size: 1em;
         }
-
-        a:hover {
-            background-color: #670000;
-        }
-
-        .comments p, .comment-form h3 {
-            margin: 10px 0;
-        }
-        .comment-form form {
-            display: flex;
-            flex-direction: column;
-        }
-        .comment-form form input, .comment-form form textarea {
-            padding: 10px;
-            border: none;
-            border-radius: 4px;
-            background-color: #444;
-            color: #cfcfcf;
-            margin-bottom: 10px;
-            font-size: 1.2em;
-        }
-        .comment-form form button {
-            padding: 10px 20px;
-            border: none;
-            border-radius: 4px;
-            background-color: #ae0000;
-            color: #fff;
-            font-size: medium;
-            cursor: pointer;
-            width: fit-content;
-        }
-        .comment-form form button:hover {
-            background-color: #670000;
-        }
-        #comment-header {
-            font-size: larger;
-            color: #ffffff;
-            font-weight: bold;
-        }
-
-        .form-group {
-            display: flex;
-            flex-direction: column;
-            margin: 0 0 20px 0;
-            gap: 5px;
-        }
-
-        #form-group-isim {
-            width: fit-content;
-        }
-
-        @media (max-width: 768px) {
-            .container {
-                width: 85%;
-                padding: 10px;
-            }
-            .content, .comments, .comment-form {
-                padding: 10px;
-            }
-            h1 {
-                font-size: 1.8em;
-            }
-            h2 {
-                font-size: 1.5em;
-            }
-            .content, .comments, .comment-form {
-                font-size: 1.1em;
-            }
-        }
-        @media (max-width: 480px) {
-            .container {
-                width: 85%;
-                padding: 15px;
-            }
-            h1 {
-                font-size: 1.8em;
-            }
-            h2 {
-                font-size: 1.3em;
-            }
-            .content {
-                font-size: 1.1em;
-            }
-            .comments, .comment-form {
-                font-size: 1em;
-            }
-            .comment-form form input, .comment-form form textarea {
-                font-size: 1em;
-            }
-        }
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <h1>{{ post.title }}</h1>
     <div class="container">
-        <p>{{ post.date }}</p>
-        <div class="content">
-            {{ post.content }}
-        </div>
-        <h2 style="color: white">Yorumlar</h2>
+      <p>{{ post.date }}</p>
+      <div class="content">{{ post.content }}</div>
+      <!-- <h2 style="color: white">Yorumlar</h2>
         <div class="comments">
             {% for comment in comments %}
             <div>
@@ -163,26 +171,26 @@
                 <p style="font-style: italic; font-size: small;">{{ comment.tarih }}</p>
             </div>
             {% endfor %}
-        </div>
-        <div class="comment-form">
-            <h3>Yorum yaz</h3>
-            <form method="post">
-                {% csrf_token %}
-                <div class="form-group" id="form-group-isim">
-                    {{ form.isim.label_tag }}
-                    {{ form.isim }}
-                    {{ form.isim.errors }}
-                </div>
-                <div class="form-group">
-                    {{ form.yorum.label_tag }}
-                    {{ form.yorum }}
-                    {{ form.yorum.errors }}
-                </div>
-                <button type="submit">Gönder</button>
-            </form>
-        </div>
+        </div> -->
+      <h3>
+        Yazılan yorumlar herkese açık değildir, yalnızca ben görebilirim. Okuduğunuz için teşekkür
+        ederim, fikirlerinizi çok merak ediyorum :)
+      </h3>
+      <div class="comment-form">
+        <h3>Yorum yaz</h3>
+        <form method="post">
+          {% csrf_token %}
+          <div class="form-group" id="form-group-isim">
+            {{ form.isim.label_tag }} {{ form.isim }} {{ form.isim.errors }}
+          </div>
+          <div class="form-group">
+            {{ form.yorum.label_tag }} {{ form.yorum }} {{ form.yorum.errors }}
+          </div>
+          <button type="submit">Gönder</button>
+        </form>
+      </div>
 
-        <p><a href="{% url 'blog_list' %}">Bloga geri dön</a></p>
+      <p><a href="{% url 'blog_list' %}">Bloga geri dön</a></p>
     </div>
-</body>
+  </body>
 </html>
