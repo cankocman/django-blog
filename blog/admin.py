@@ -12,3 +12,4 @@ class BlogPostAdmin(admin.ModelAdmin):
 class CommentAdmin(admin.ModelAdmin):
     list_display = ('post', 'isim', 'tarih')
     search_fields = ('post', 'yorum')
+    readonly_fields = ('post', 'isim', 'yorum', 'tarih')
